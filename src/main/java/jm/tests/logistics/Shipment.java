@@ -28,6 +28,10 @@ public class Shipment {
         return cost;
     }
 
+    public double costToWeightRatio() {
+        return (double) cost / weight;
+    }
+
     /**
      * Создает экземпляр Shipment используя строковое представление.
      * @param s строковое представление в формате название/вес/цена
