@@ -23,7 +23,7 @@ public class MainTest {
         System.setOut(saved);
         String expectedPrompt = "Грузоподъемность машины в килограммах: "
             + "Введите через пробел предметы в формате название/вес/цена: ";
-        String expectedResult = "bed cleaner 16000" + System.lineSeparator();
+        String expectedResult = "cleaner bed 16000" + System.lineSeparator();
         String expected = expectedPrompt + expectedResult;
         assertThat(buffer.toString(), is(expected));
     }

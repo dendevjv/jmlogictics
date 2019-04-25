@@ -1,3 +1,3 @@
-# jmlogictics
+# jmlogistics
 
 Тестовое задание.
