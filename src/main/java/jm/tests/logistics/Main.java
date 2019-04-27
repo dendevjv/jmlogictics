@@ -18,10 +18,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int loadCapacity = readCapacity(in);
-        List<Item> items = readShipments(in);
+        List<Item> items = readItems(in);
         List<Item> selected = new ItemSelectorByCostWeightRatio().select(loadCapacity, items);
-        Instruction instruction = new Instruction(selected);
-        System.out.println(instruction);
+        Truck truck = new Truck(loadCapacity);
+        selected.forEach(truck::add);
+        System.out.println(truck.itemsDescription());
     }
 
     private static int readCapacity(Scanner in) {
@@ -44,7 +45,7 @@ public class Main {
         return loadCapacity;
     }
 
-    private static List<Item> readShipments(Scanner in) {
+    private static List<Item> readItems(Scanner in) {
         List<Item> items = new ArrayList<>();
         boolean reading = true;
         while (reading) {
