@@ -19,7 +19,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int loadCapacity = readCapacity(in);
         List<Shipment> shipments = readShipments(in);
-        List<Shipment> selected = new ShipmentSelector().select(loadCapacity, shipments);
+        List<Shipment> selected = new ShipmentSelectorByCostWeightRatio().select(loadCapacity, shipments);
         Instruction instruction = new Instruction(selected);
         System.out.println(instruction);
     }
