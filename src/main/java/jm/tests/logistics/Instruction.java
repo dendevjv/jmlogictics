@@ -6,25 +6,21 @@ import java.util.List;
  * Инструкция содержащая информацию о товарах для погрузки.
  */
 public class Instruction {
-    private final List<Shipment> shipments;
-    private int totalCost;
+    private final List<Item> items;
 
-    public Instruction(List<Shipment> shipments) {
-        this.shipments = shipments;
-        shipments.forEach(sh -> totalCost += sh.getCost());
-    }
-
-    public int getTotalCost() {
-        return totalCost;
+    public Instruction(List<Item> items) {
+        this.items = items;
     }
 
     @Override
     public String toString() {
+        int totalCost = 0;
         StringBuilder builder = new StringBuilder();
-        shipments.forEach(sh -> {
+        for (Item sh : items) {
             builder.append(sh.getName());
             builder.append(" ");
-        });
+            totalCost += sh.getCost();
+        }
         builder.append(totalCost);
         return builder.toString();
     }

@@ -5,12 +5,12 @@ import java.util.Objects;
 /**
  * Товар предназначенный для доставки.
  */
-public class Shipment {
+public class Item {
     private final String name;
     private final int weight;
     private final int cost;
 
-    public Shipment(String name, int weight, int cost) {
+    public Item(String name, int weight, int cost) {
         this.name = name;
         this.weight = weight;
         this.cost = cost;
@@ -33,11 +33,11 @@ public class Shipment {
     }
 
     /**
-     * Создает экземпляр Shipment используя строковое представление.
+     * Создает экземпляр Item используя строковое представление.
      * @param s строковое представление в формате название/вес/цена
      * @return экземпляр
      */
-    public static Shipment parse(String s) {
+    public static Item parse(String s) {
         if (s == null || s.isEmpty()) {
             throw new IllegalArgumentException("Отсутствует описание предмета: " + s);
         }
@@ -53,17 +53,17 @@ public class Shipment {
         } catch (NumberFormatException nfe) {
             throw new IllegalArgumentException("Некорректное описание предмета: " + s, nfe);
         }
-        return new Shipment(name, weight, cost);
+        return new Item(name, weight, cost);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Shipment shipment = (Shipment) o;
-        return cost == shipment.cost &&
-                weight == shipment.weight &&
-                Objects.equals(name, shipment.name);
+        Item item = (Item) o;
+        return cost == item.cost &&
+                weight == item.weight &&
+                Objects.equals(name, item.name);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Shipment {
 
     @Override
     public String toString() {
-        return "Shipment{" +
+        return "Item{" +
                 "name='" + name + '\'' +
                 ", cost=" + cost +
                 ", weight=" + weight +

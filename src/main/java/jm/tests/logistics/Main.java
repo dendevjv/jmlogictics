@@ -18,8 +18,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int loadCapacity = readCapacity(in);
-        List<Shipment> shipments = readShipments(in);
-        List<Shipment> selected = new ShipmentSelectorByCostWeightRatio().select(loadCapacity, shipments);
+        List<Item> items = readShipments(in);
+        List<Item> selected = new ItemSelectorByCostWeightRatio().select(loadCapacity, items);
         Instruction instruction = new Instruction(selected);
         System.out.println(instruction);
     }
@@ -44,8 +44,8 @@ public class Main {
         return loadCapacity;
     }
 
-    private static List<Shipment> readShipments(Scanner in) {
-        List<Shipment> shipments = new ArrayList<>();
+    private static List<Item> readShipments(Scanner in) {
+        List<Item> items = new ArrayList<>();
         boolean reading = true;
         while (reading) {
             System.out.print("Введите через пробел предметы в формате название/вес/цена: ");
@@ -53,13 +53,13 @@ public class Main {
             String[] tokens = input.split(" ");
             try {
                 for (String token : tokens) {
-                    shipments.add(Shipment.parse(token));
+                    items.add(Item.parse(token));
                 }
                 reading = false;
             } catch (IllegalArgumentException ex) {
                 System.out.println(ex.getMessage());
             }
         }
-        return shipments;
+        return items;
     }
 }
