@@ -13,7 +13,7 @@ public class TruckTest {
         assertThat(truck.add(new Item("a", 7, 10)), is(true));
         assertThat(truck.add(new Item("b", 6, 10)), is(false));
         assertThat(truck.getFreeCapacity(), is(3));
-        assertThat(truck.getCarryingCapacity(), is(10));
+        assertThat(truck.getLoadCapacity(), is(10));
         assertThat(truck.getItems().size(), is(1));
         assertThat(truck.getItems().get(0), is(new Item("a", 7, 10)));
     }

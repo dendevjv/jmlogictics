@@ -19,9 +19,9 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int loadCapacity = readCapacity(in);
         List<Item> items = readItems(in);
-        List<Item> selected = new ItemSelectorByCostWeightRatio().select(loadCapacity, items);
         Truck truck = new Truck(loadCapacity);
-        selected.forEach(truck::add);
+        TruckLoader loader = new TruckLoader(new ItemSelectorByCombination());
+        loader.load(truck, items);
         System.out.println(truck.itemsDescription());
     }
 

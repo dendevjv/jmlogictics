@@ -8,12 +8,12 @@ import java.util.List;
  */
 public class Truck {
     private final List<Item> items = new ArrayList<>();
-    private final int carryingCapacity;
+    private final int loadCapacity;
     private int freeCapacity;
 
-    public Truck(int carryingCapacity) {
-        this.carryingCapacity = carryingCapacity;
-        freeCapacity = carryingCapacity;
+    public Truck(int loadCapacity) {
+        this.loadCapacity = loadCapacity;
+        freeCapacity = loadCapacity;
     }
 
     public boolean canCarry(Item item) {
@@ -33,8 +33,8 @@ public class Truck {
         return freeCapacity;
     }
 
-    public int getCarryingCapacity() {
-        return carryingCapacity;
+    public int getLoadCapacity() {
+        return loadCapacity;
     }
 
     public List<Item> getItems() {
