@@ -10,13 +10,13 @@ public class ItemSelectorByCostWeightRatio implements ItemSelector {
      * Производит отбор предметов для погрузки из предоставленного списка.
      * Отбор производится в порядке уменьшения соотношения стоимости и веса предметов.
      * @param loadCapacity максимальная грузоподъемность машины
-     * @param items список предметов
+     * @param source список предметов
      * @return список предметов отобранных для погрузки.
      */
     @Override
-    public List<Item> select(int loadCapacity, List<Item> items) {
+    public List<Item> select(int loadCapacity, List<Item> source) {
         List<Item> result = new ArrayList<>();
-        List<Item> sorted = new ArrayList<>(items);
+        List<Item> sorted = new ArrayList<>(source);
         sorted.sort((first, second) -> Double.compare(
                 second.costToWeightRatio(),
                 first.costToWeightRatio())
