@@ -11,14 +11,6 @@ import java.util.StringJoiner;
 class Items implements Cloneable {
     private ArrayList<Item> list = new ArrayList<>();
 
-    Items() {
-    }
-
-    @SuppressWarnings("unchecked")
-    private Items(ArrayList<Item> list) {
-        this.list = (ArrayList<Item>) list.clone();
-    }
-
     public List<Item> getList() {
         return list;
     }
@@ -47,9 +39,17 @@ class Items implements Cloneable {
         return total;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Object clone() {
-        return new Items(this.list);
+        try {
+            Items it = (Items) super.clone();
+            it.list = (ArrayList<Item>) this.list.clone();
+            return it;
+        } catch (CloneNotSupportedException e) {
+            // этого не должны произойти, так как класс Cloneable
+            throw new InternalError(e);
+        }
     }
 
     @Override

@@ -49,7 +49,7 @@ public class ItemSelectorByCostWeightRatioTest {
         assertThat(result, is(expected));
     }
 
-    @Ignore
+    @Ignore("Случай выявляющий неоптимальность алгоритма")
     @Test
     public void whenSelectThenReturnsItemsGivingMaximumCost2() {
         var shipments = List.of(
