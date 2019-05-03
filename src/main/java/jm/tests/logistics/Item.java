@@ -28,10 +28,6 @@ public class Item {
         return cost;
     }
 
-    public double costToWeightRatio() {
-        return (double) cost / weight;
-    }
-
     /**
      * Создает экземпляр Item используя строковое представление.
      * @param s строковое представление в формате название/вес/цена

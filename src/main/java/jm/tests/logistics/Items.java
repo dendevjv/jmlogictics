@@ -47,7 +47,7 @@ class Items implements Cloneable {
             it.list = (ArrayList<Item>) this.list.clone();
             return it;
         } catch (CloneNotSupportedException e) {
-            // этого не должны произойти, так как класс Cloneable
+            // этого не должно произойти, так как класс Cloneable
             throw new InternalError(e);
         }
     }
