@@ -34,7 +34,8 @@ public class ItemSelectorByCombinationTest {
                 new Item("d", 40, 10000),
                 new Item("e", 3, 5000),
                 new Item("f", 3, 5000),
-                new Item("g", 1, 3000)
+                new Item("g", 1, 3000),
+                new Item("h", 60, 3000)
         );
         var result = new HashSet<>(new ItemSelectorByCombination().select(50, shipments));
         Set<Item> expected = Set.of(
